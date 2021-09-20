@@ -1,0 +1,19 @@
+{
+  "name": "zapatos-js",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start-server": "tsc && node index.js"
+  },
+  "dependencies": {
+    "@types/node": "^16.9.2",
+    "@types/pg": "^7.14.10",
+    "nodemon": "^2.0.12",
+    "oso": "../oso/languages/js/",
+    "pg": "^8.7.1",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.3",
+    "zapatos": "^5.0.0"
+  }
+}
