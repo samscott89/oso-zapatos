@@ -10,7 +10,7 @@
     "@types/node": "^16.9.2",
     "@types/pg": "^7.14.10",
     "nodemon": "^2.0.12",
-    "oso": "../oso/languages/js/",
+    "oso": "^0.20.1",
     "pg": "^8.7.1",
     "ts-node": "^10.2.1",
     "typescript": "^4.4.3",
