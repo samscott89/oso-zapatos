@@ -9,8 +9,23 @@ pool.on('error', err => console.error(err));  // don't let a pg restart kill you
 
 export default pool;
 
+// add some extra test data if necessary
+async function addData() {
+    try {
+        await db.insert('repo', {
+            id: 3,
+            name: "Sgt Pepper's",
+            orgId: 1
+        }).run(pool)
+    } catch (e) {
+        // do nothing
+    }
+}
+
 async function main() {
     await initOso();
+
+    await addData();
 
     const dbUser = await db.selectExactlyOne('user', {
         email: "john@beatles.com"
