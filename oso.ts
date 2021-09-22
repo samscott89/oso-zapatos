@@ -36,20 +36,19 @@ export async function initOso() {
             return result.map(each => new Repository(each.id, each.orgId!, each.name))
         }, types: {
             id: String,
-            parent: new Relation('one', 'Parent', 'parentId', 'id'),
+            org: new Relation('one', 'Organization', 'orgId', 'id'),
         },
     })
 
     oso.registerClass(OrgRole, {
         execQuery: async (where) => {
             const result = await db.select('org_role', where, { columns: ['id', 'role', 'orgId', 'userId'] }).run(pool)
-
             return result.map(each => new OrgRole(each.id, each.role, each.orgId!, each.userId!))
         },
         types: {
             id: String,
             user: new Relation('one', 'User', 'userId', 'id'),
-            org: new Relation('one', 'Org', 'orgId', 'id'),
+            org: new Relation('one', 'Organization', 'orgId', 'id'),
         },
     })
 
@@ -61,7 +60,7 @@ export async function initOso() {
         types: {
             id: String,
             user: new Relation('one', 'User', 'userId', 'id'),
-            repo: new Relation('one', 'Repo', 'repoId', 'id'),
+            repo: new Relation('one', 'Repository', 'repoId', 'id'),
         },
     })
 
@@ -72,7 +71,7 @@ export async function initOso() {
         },
         types: {
             id: String,
-            repo: new Relation('one', 'Repo', 'repoId', 'id'),
+            repo: new Relation('one', 'Repository', 'repoId', 'id'),
         },
     })
 
